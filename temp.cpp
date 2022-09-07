@@ -530,59 +530,42 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                 sleep(3);
                 system("cls");
                 cout << "\t\t\t You request is approved ,You got $" << amount << " of loan from Salik Bank Limited (SBL) " << endl;
-                
-                int currentIndex=0;
-                bool currentIndexFound=false;
-                for(int i=0;i<noOfAccounts;i++)
+
+                int currentIndex = 0;
+                for (int i = 0; i < noOfAccounts; i++)
                 {
-                    if((accounts+i)->getUserName()==currentUser.getUserName())
+                    if ((accounts + i)->getUserName() == currentUser.getUserName())
                     {
-                        currentIndex=i;
-                        currentIndexFound=true;
+                        currentIndex = i;
                         break;
                     }
                 }
 
-                //deepCopy
-                account *tempAccounts=new account[noOfAccounts];
-                for(int i=0;i<noOfAccounts;i++)
+                // deepCopy
+                account *tempAccounts = new account[noOfAccounts];
+                for (int i = 0; i < noOfAccounts; i++)
                 {
-                    *(tempAccounts+i)=*(accounts+i);
+                    *(tempAccounts + i) = *(accounts + i);
                 }
 
-                int tempSize=(tempAccounts+currentIndex)->getSize();
+                int tempSize = (tempAccounts + currentIndex)->getSize();
 
-                double *tempMov=new double[tempSize+1];
-                for(int i=0;i<tempSize;i++)
+                double *tempMov = new double[tempSize + 1];
+                for (int i = 0; i < tempSize; i++)
                 {
-                    *(tempMov+i)=*((tempAccounts+currentIndex)->getMovementsAddress()+i);
-                }  
-                *(tempMov+tempSize)=amount;
-                delete[] (tempAccounts+currentIndex)->getMovementsAddress();
-                (tempAccounts+currentIndex)->setMovementsAddress(tempMov);
-                (tempAccounts+currentIndex)->setSize((tempAccounts+currentIndex)->getSize()+1);
-                
+                    *(tempMov + i) = *((tempAccounts + currentIndex)->getMovementsAddress() + i);
+                }
+                *(tempMov + tempSize) = amount;
+                delete[](tempAccounts + currentIndex)->getMovementsAddress();
+                (tempAccounts + currentIndex)->setMovementsAddress(tempMov);
+                (tempAccounts + currentIndex)->setSize((tempAccounts + currentIndex)->getSize() + 1);
+
                 delete[] accounts;
-                accounts=tempAccounts;
-                currentUser=*(accounts+currentIndex);
+                accounts = tempAccounts;
+                currentUser = *(accounts + currentIndex);
 
                 successfullyCreatedAccount(currentUser);
                 secondPage(currentUser, login, accounts, noOfAccounts, flag);
-
-                
-
-                // // Adding amount to movements array
-                // double *temp = new double[currentUser.getSize() + 1];
-                // for (int i = 0; i < currentUser.getSize(); i++)
-                // {
-                //     *(temp + i) = *(currentUser.getMovementsAddress() + i);
-                // }
-                // *(temp + currentUser.getSize()) = amount;
-                // delete[] currentUser.getMovementsAddress();
-                // currentUser.setMovementsAddress(temp);
-                // currentUser.setSize(currentUser.getSize() + 1);
-                // successfullyCreatedAccount(currentUser);
-                // secondPage(currentUser, login, accounts, noOfAccounts, flag);
             }
             else
             {
@@ -594,70 +577,91 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
         }
         case 't':
         {
-            // bool accountExist = false;
-            // int indexReciever = 0;
-            // long long int amountTransfer = 0;
-            // string usernameTransfer = "";
-            // spaces2();
-            // cout << "\t\t\t Enter the amount that you want to transfer :";
-            // cin >> amountTransfer;
-            // while (currentUser.getTotalBalance() - amountTransfer < 200)
-            // {
-            //     cout << "Sorry Sir ! You cannot transfer more than $" << currentUser.getTotalBalance() - 200 << ", At least your bank account has $200 in it." << endl;
-            //     cout << "\t\t\t Again enter the amount that you want to transfer :";
-            //     cin >> amountTransfer;
-            // }
-            // do
-            // {
-            //     cout << "\t\t\t Enter the username of the account ,whom you want to transfer money:";
-            //     cin >> usernameTransfer;
-            //     for (int i = 0; i < noOfAccounts; i++)
-            //     {
-            //         if ((accounts + i)->getUserName() == usernameTransfer)
-            //         {
-            //             accountExist = true;
-            //             indexReciever = i;
-            //             break;
-            //         }
-            //     }
-            //     if (accountExist == true)
-            //     {
-            //         cout << "\t\t\t Transiction is in process...." << endl;
-            //         sleep(3);
-            //         system("cls");
-            //         cout << "\t\t\t SUCCESSFULLY TRANSFERED ,You transfered $" << amountTransfer << " to the account  " << usernameTransfer << endl;
+            bool accountExist = false;
+            int indexReciever = 0;
+            int currentIndex = 0;
+            double amountTransfer = 0;
+            string usernameTransfer = "";
 
-            //         // Adding withdrawl Amount in the current user
-            //         amountTransfer = amountTransfer * (-1);
-            //         double *temp = new double[currentUser.getSize() + 1];
-            //         for (int i = 0; i < currentUser.getSize(); i++)
-            //         {
-            //             *(temp + i) = *(currentUser.getMovementsAddress() + i);
-            //         }
-            //         *(temp + currentUser.getSize()) = amountTransfer;
-            //         delete[] currentUser.getMovementsAddress();
-            //         currentUser.setMovementsAddress(temp);
-            //         currentUser.setSize(currentUser.getSize() + 1);
-            //         successfullyCreatedAccount(currentUser);
+            spaces2();
+            cout << "\t\t\t Enter the amount that you want to transfer :";
+            cin >> amountTransfer;
+            while (currentUser.getTotalBalance() - amountTransfer < 200)
+            {
+                cout << "Sorry Sir ! You cannot transfer more than $" << currentUser.getTotalBalance() - 200 << ", At least your bank account has $200 in it." << endl;
+                cout << "\t\t\t Again enter the amount that you want to transfer :";
+                cin >> amountTransfer;
+            }
 
-            //         // Adding deposited Amount in the current user
-            //         amountTransfer = amountTransfer * (1);
-            //         double *temp2 = new double[(accounts + indexReciever)->getSize() + 1];
-            //         for (int i = 0; i < (accounts + indexReciever)->getSize(); i++)
-            //         {
-            //             *(temp2 + i) = *(accounts + indexReciever)->getMovementsAddress() + i;
-            //         }
-            //         *(temp2 + (accounts + indexReciever)->getSize()) = amountTransfer;
-            //         delete[](accounts + indexReciever)->getMovementsAddress();
-            //         (accounts + indexReciever)->setMovementsAddress(temp);
-            //         (accounts + indexReciever)->setSize((accounts + indexReciever)->getSize() + 1);
-            //         successfullyCreatedAccount(*(accounts + indexReciever));
-            //     }
-            //     if (accountExist == false)
-            //     {
-            //         cout << "\t\t\t Error: Such Account does'nt exist : " << endl;
-            //     }
-            // } while (accountExist == false);
+            do
+            {
+                cout << "\t\t\t Enter the username of the account ,whom you want to transfer money:";
+                cin >> usernameTransfer;
+                for (int i = 0; i < noOfAccounts; i++)
+                {
+                    if ((accounts + i)->getUserName() == usernameTransfer)
+                    {
+                        accountExist = true;
+                        indexReciever = i;
+                        break;
+                    }
+                }
+                for (int i = 0; i < noOfAccounts; i++)
+                {
+                    if ((accounts + i)->getUserName() == currentUser.getUserName())
+                    {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+
+                if (accountExist == true)
+                {
+                    cout << "\t\t\t Transiction is in process...." << endl;
+                    sleep(3);
+                    system("cls");
+                    cout << "\t\t\t SUCCESSFULLY TRANSFERED ,You transfered $" << amountTransfer << " to the account  " << usernameTransfer << endl;
+
+
+                    // deepCopy--Adding withdrwal to the currentUser
+                    amountTransfer = amountTransfer * (-1);
+                    account *tempAccounts = new account[noOfAccounts];
+                    for (int i = 0; i < noOfAccounts; i++)
+                    {
+                        *(tempAccounts + i) = *(accounts + i);
+                    }
+
+                    int tempSize = (tempAccounts + currentIndex)->getSize();
+
+                    double *tempMov = new double[tempSize + 1];
+                    for (int i = 0; i < tempSize; i++)
+                    {
+                        *(tempMov + i) = *((tempAccounts + currentIndex)->getMovementsAddress() + i);
+                    }
+                    *(tempMov + tempSize) = amountTransfer;
+                    delete[](tempAccounts + currentIndex)->getMovementsAddress();
+                    (tempAccounts + currentIndex)->setMovementsAddress(tempMov);
+                    (tempAccounts + currentIndex)->setSize((tempAccounts + currentIndex)->getSize() + 1);
+
+                    delete[] accounts;
+                    accounts = tempAccounts;
+                    currentUser = *(accounts + currentIndex);
+                    successfullyCreatedAccount(currentUser);
+
+
+
+
+
+
+
+
+                    secondPage(currentUser, login, accounts, noOfAccounts, flag);
+                }
+                if (accountExist == false)
+                {
+                    cout << "\t\t\t Error: Such Account does'nt exist : " << endl;
+                }
+            } while (accountExist == false);
 
             break;
         }
