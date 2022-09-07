@@ -530,7 +530,71 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
         }
         case 't':
         {
-            
+            bool accountExist = false;
+            int indexReciever = 0;
+            long long int amountTransfer = 0;
+            string usernameTransfer = "";
+            spaces2();
+            cout << "\t\t\t Enter the amount that you want to transfer :";
+            cin >> amountTransfer;
+            while (currentUser.getTotalBalance() - amountTransfer < 200)
+            {
+                cout << "Sorry Sir ! You cannot transfer more than $" << currentUser.getTotalBalance() - 200 << ", At least your bank account has $200 in it." << endl;
+                cout << "\t\t\t Again enter the amount that you want to transfer :";
+                cin >> amountTransfer;
+            }
+            do
+            {
+                cout << "\t\t\t Enter the username of the account ,whom you want to transfer money:";
+                cin >> usernameTransfer;
+                for (int i = 0; i < noOfAccounts; i++)
+                {
+                    if ((accounts + i)->getUserName() == usernameTransfer)
+                    {
+                        accountExist = true;
+                        indexReciever = i;
+                        break;
+                    }
+                }
+                if (accountExist == true)
+                {
+                    cout << "\t\t\t Transiction is in process...." << endl;
+                    sleep(3);
+                    system("cls");
+                    cout << "\t\t\t SUCCESSFULLY TRANSFERED ,You transfered $" << amountTransfer << " to the account  " << usernameTransfer << endl;
+
+                    // Adding withdrawl Amount in the current user
+                    amountTransfer = amountTransfer * (-1);
+                    double *temp = new double[currentUser.getSize() + 1];
+                    for (int i = 0; i < currentUser.getSize(); i++)
+                    {
+                        *(temp + i) = *(currentUser.getMovementsAddress() + i);
+                    }
+                    *(temp + currentUser.getSize()) = amountTransfer;
+                    delete[] currentUser.getMovementsAddress();
+                    currentUser.setMovementsAddress(temp);
+                    currentUser.setSize(currentUser.getSize() + 1);
+                    successfullyCreatedAccount(currentUser);
+
+                    // Adding deposited Amount in the current user
+                    amountTransfer = amountTransfer * (1);
+                    double *temp2 = new double[(accounts + indexReciever)->getSize() + 1];
+                    for (int i = 0; i < (accounts + indexReciever)->getSize(); i++)
+                    {
+                        *(temp2 + i) = *(accounts + indexReciever)->getMovementsAddress() + i;
+                    }
+                    *(temp2 + (accounts + indexReciever)->getSize()) = amountTransfer;
+                    delete[](accounts + indexReciever)->getMovementsAddress();
+                    (accounts + indexReciever)->setMovementsAddress(temp);
+                    (accounts + indexReciever)->setSize((accounts + indexReciever)->getSize() + 1);
+                    successfullyCreatedAccount(*(accounts + indexReciever));
+                }
+                if (accountExist == false)
+                {
+                    cout << "\t\t\t Error: Such Account does'nt exist : " << endl;
+                }
+            } while (accountExist == false);
+
             break;
         }
         case 'd':
@@ -617,4 +681,7 @@ void loanRequest(account &currentUser)
     delete[] currentUser.getMovementsAddress();
     currentUser.setMovementsAddress(temp);
     currentUser.setSize(currentUser.getSize() + 1);
+    successfullyCreatedAccount(currentUser);
 }
+
+// transfering money
