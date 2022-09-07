@@ -744,7 +744,7 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                         system("cls");
                         cin.ignore();
                         exit = true;
-                        cout << "\t\t\t YOUR ACCOUNT HAS BEEN DELETED SUCCESSFULLY " << endl;
+                        cout << "\t\t\t\t YOUR ACCOUNT HAS BEEN DELETED SUCCESSFULLY " << endl;
                         SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
 
                         break;
