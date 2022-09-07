@@ -684,8 +684,71 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
         }
         case 'd':
         {
+            spaces2();
+            string deleteUsername;
+            int deleteUserPin;
+            bool found = false;
+            char confirm;
+            do
+            {
+                cout << "\t\t To delete your account enter your username or pin code:" << endl;
+                cout << "\t\t\t Enter your username:";
+                cin >> deleteUsername;
+                cout << "\t\t\t Enter your pincode: ";
+                cin >> deleteUserPin;
+                if (currentUser.getUserName() == deleteUsername && currentUser.getPin() == deleteUserPin)
+                {
+                    found = true;
+                    cout << "\t\t\t Are you sure to delete your account (y/n): ";
+                    confirm = getch();
+                    confirm = tolower(confirm);
+                    while (confirm != 'y' && confirm != 'n')
+                    {
+                        cout << "\t\t\t Invalid input : Please enter the valid input as (y/n) :";
+                        confirm = getch();
+                        confirm = tolower(confirm);
+                    }
+                    switch (confirm)
+                    {
+                    case 'y':
+                    {
+                        int loc = 0;
+                        account *tempAccountsDelete = new account[noOfAccounts - 1];
+                        for (int i = 0; i < noOfAccounts; i++)
+                        {
+                            if ((accounts + i)->getPin() != currentUser.getPin())
+                            {
+                                *(tempAccountsDelete + loc) = *(accounts + i);
+                                loc++;
+                            }
+                        }
+                        delete[] accounts;
+                        accounts = tempAccountsDelete;
+                        noOfAccounts--;
+
+                        system("cls");
+                        cin.ignore();
+                        exit = true;
+                        SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
+
+                        break;
+                    }
+                    case 'n':
+                    {
+                        system("cls");
+                        secondPage(currentUser, login, accounts, noOfAccounts, flag);
+                        break;
+                    }
+                    }
+                }
+                else
+                {
+                    cout << "\t\t You enter the worng username or pincode : Try Again : " << endl;
+                }
+            } while (found == false);
             break;
         }
+
         case 's':
         {
             currentUser.sortMovements();
