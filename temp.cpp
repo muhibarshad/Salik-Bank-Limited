@@ -622,7 +622,6 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                     system("cls");
                     cout << "\t\t\t SUCCESSFULLY TRANSFERED ,You transfered $" << amountTransfer << " to the account  " << usernameTransfer << endl;
 
-
                     // deepCopy--Adding withdrwal to the currentUser
                     amountTransfer = amountTransfer * (-1);
                     account *tempAccounts = new account[noOfAccounts];
@@ -648,12 +647,30 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                     currentUser = *(accounts + currentIndex);
                     successfullyCreatedAccount(currentUser);
 
+                    // deepCopy--Adding Amount to the reciever
+                    amountTransfer = abs(amountTransfer);
+                    account *tempAccounts2 = new account[noOfAccounts];
+                    for (int i = 0; i < noOfAccounts; i++)
+                    {
+                        *(tempAccounts2 + i) = *(accounts + i);
+                    }
 
+                    int tempSize2 = (tempAccounts2 + indexReciever)->getSize();
 
+                    double *tempMov2 = new double[tempSize2 + 1];
+                    for (int i = 0; i < tempSize2; i++)
+                    {
+                        *(tempMov2 + i) = *((tempAccounts + indexReciever)->getMovementsAddress() + i);
+                    }
+                    *(tempMov2 + tempSize2) = amountTransfer;
+                    delete[](tempAccounts2 + indexReciever)->getMovementsAddress();
+                    (tempAccounts2 + indexReciever)->setMovementsAddress(tempMov2);
+                    (tempAccounts2 + indexReciever)->setSize((tempAccounts2 + indexReciever)->getSize() + 1);
 
+                    delete[] accounts;
+                    accounts = tempAccounts2;
 
-
-
+                    successfullyCreatedAccount(*(accounts + indexReciever));
 
                     secondPage(currentUser, login, accounts, noOfAccounts, flag);
                 }
