@@ -169,7 +169,7 @@ public:
     // destructor
     ~account()
     {
-        cout << "Destructor called:" << endl;
+        // cout << "Destructor called:" << endl;
     }
 
     // Member Functions
@@ -494,7 +494,7 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
         cout << "\t\t|      Press \'T\' for transfer money      |" << endl;
         cout << "\t\t|      Press \'S\' for sort movements      |" << endl;
         cout << "\t\t|      Press \'D\' for delete account      |" << endl;
-        cout << "\t\t|      Press \'E\' for log exit            |" << endl;
+        cout << "\t\t|      Press \'E\' for log out            |" << endl;
         cout << "\t\t ------------------------------------------" << endl;
         spaces2();
         cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
@@ -526,6 +526,7 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                     cout << "\t\t\t Invalid Input : Please Enter the valid input (amount should be a positive value ) :";
                     cin >> amount;
                 }
+                spaces2();
                 cout << "\t\t\t\t Your request is in progress........." << endl;
                 sleep(3);
                 system("cls");
@@ -595,11 +596,16 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
 
             do
             {
+                bool selfTransfer = false;
                 cout << "\t\t\t Enter the username of the account ,whom you want to transfer money:";
                 cin >> usernameTransfer;
+                if (usernameTransfer == currentUser.getUserName())
+                {
+                    selfTransfer = true;
+                }
                 for (int i = 0; i < noOfAccounts; i++)
                 {
-                    if ((accounts + i)->getUserName() == usernameTransfer)
+                    if ((accounts + i)->getUserName() == usernameTransfer && (accounts + i)->getUserName() != currentUser.getUserName())
                     {
                         accountExist = true;
                         indexReciever = i;
@@ -615,8 +621,9 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                     }
                 }
 
-                if (accountExist == true)
+                if (accountExist == true && selfTransfer == false)
                 {
+                    spaces2();
                     cout << "\t\t\t Transiction is in process...." << endl;
                     sleep(3);
                     system("cls");
@@ -678,6 +685,12 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                 {
                     cout << "\t\t\t Error: Such Account does'nt exist : " << endl;
                 }
+                if (selfTransfer == true)
+                {
+                    spaces2();
+                    cout << "\t\tError :You could not transfer money to yourself:" << endl;
+                    spaces2();
+                }
             } while (accountExist == false);
 
             break;
@@ -725,10 +738,13 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
                         delete[] accounts;
                         accounts = tempAccountsDelete;
                         noOfAccounts--;
-
+                        spaces2();
+                        cout << "\t\t\t Deleting your account........" << endl;
+                        sleep(3);
                         system("cls");
                         cin.ignore();
                         exit = true;
+                        cout << "\t\t\t YOUR ACCOUNT HAS BEEN DELETED SUCCESSFULLY " << endl;
                         SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
 
                         break;
