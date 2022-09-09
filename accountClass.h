@@ -23,7 +23,6 @@ private:
     double outcome;
     double interest;
     bool sort;
-
 public:
     //CONSTRUCTORS
     account(string, string, int, int, double, double, double, double, bool, double *);
@@ -266,6 +265,7 @@ double account ::calculateTotalOutcome()
     outcome = totalOutcome;
     return totalOutcome;
 }
+
 //CALCULATING_TOTAL_INTEREST
 double account ::calculateTotalInterest()
 {

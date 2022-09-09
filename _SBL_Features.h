@@ -16,8 +16,8 @@ void successfullyCreatedAccount(account &);
 void secondPage(account &, char &, account *, int &);
 void loanRequest(account &);
 void requestLoan(account *, int &, account &, char, bool);
-void deleteAccount(account *, int &, account &, char, bool, bool &);
 void transictionProcess(account *, int &, account &, char, bool);
+void deleteAccount(account *, int &, account &, char, bool, bool &);
 
 /* ==============================================================================================
 ***************************************_FUNCTIONS_BODY******************************************
