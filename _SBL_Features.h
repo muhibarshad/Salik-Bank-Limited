@@ -239,6 +239,9 @@ void secondPage(account &currentUser, char &login, account *accounts, int &noOfA
         }
         case 'e':
         {
+            spaces2();
+            cout<<"\t\t\t Logging out..........."<<endl;
+            Sleep(2*1000);
             system("cls");
             cin.ignore();
             exit = true;
