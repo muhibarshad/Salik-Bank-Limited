@@ -37,13 +37,12 @@ void loginPage(char &login)
     cout << "\t\t -----------------------------------------------------------------------------" << endl;
     cout << "\t\t | *If you have already an account then press \'L\' for login your account :   |" << endl;
     cout << "\t\t | *If you don't have an account then press \'C\' for create your account :    |" << endl;
-    cout << "\t\t | *Press \'E\' to exit.....                                                   |" << endl;
     cout << "\t\t -----------------------------------------------------------------------------" << endl;
     login = getch();
     login = tolower(login);
 
     //_INPUT_VALIDATION
-    while (login != 'l' && login != 'c' && login != 'e')
+    while (login != 'l' && login != 'c')
     {
         cout << "\t\tError->Invalid Input :" << endl;
         cout << "\t\tPlease enter the valid input as \'L\' or \'C\':" << endl;
@@ -285,11 +284,6 @@ void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUse
         system("cls");
         cout << "\t\tCongratulations ! You have successfully created your first Account :" << endl;
         secondPage(currentUser, login, accounts, noOfAccounts, flag);
-        break;
-    }
-    case 'e':
-    {
-        cout << "Quiting..................." << endl;
         break;
     }
     }
