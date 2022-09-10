@@ -9,10 +9,12 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/muhib7353/Salik-Bank-Limited?logo=git)
 ![GitHub language count](https://img.shields.io/github/languages/count/muhib7353/Salik-Bank-Limited?logo=c%2B%2B)
 
->Bankist application in `C++` by using `DYNAMIC MEMPRY ALLOCATION` and `OBJECT_ORIENTED_PROGRAMMING` concepts. Its main features are login system, user authentication ,create a new account , requesting loan , transfer money, sort your movements , currency converter , delete your account and log out system .
+> Bankist application in `C++` by using `DYNAMIC MEMPRY ALLOCATION` and `OBJECT_ORIENTED_PROGRAMMING` concepts. Its main features are login system, user authentication ,create a new account , requesting loan , transfer money, sort your movements , currency converter , delete your account and log out system .
 
 # ✨ Demo
+
 `Bankist project` main feature is `abstraction` and `data-encapsulation`.Main contain only `default` accounts data, memory allocation and deallocation and one executed external function.
+
 <p align="center">
   <img width="700" align="center" src="Demo/demo.mp4" alt="demo"/>
 </p>
