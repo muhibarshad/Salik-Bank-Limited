@@ -74,7 +74,7 @@ account Login(string &username, int &pin, account *accs, const int noOfAccounts)
         {
             if ((accs + i)->getUserName() == username && (accs + i)->getPin() == pin)
             {
-                flag = true;
+                flag = true; 
                 temp = *(accs + i);
             }
         }
