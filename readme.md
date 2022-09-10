@@ -15,6 +15,7 @@
 
 `Bankist project` main feature is `abstraction` and `data-encapsulation`.Main contain only `default` accounts data, memory allocation and deallocation and one executed external function.
 
-<video autoplay muted loop class="vedio"align="center">
-   <source src="Demo/demo.mp4">
-</video>
+<p align="center">
+  <img width="700" src="https://user-images.githubusercontent.com/98839666/189484222-bf4e903a-6b7e-4f52-807d-5d81aa12ece7.gif" alt="cli output"/>
+</p>
+
