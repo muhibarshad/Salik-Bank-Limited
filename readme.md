@@ -23,4 +23,9 @@
   <img width="700" src="Demo/demo.gif" alt="demo"/>
 </p>
 
+<video autoplay muted loop class="vedio" align="center" width="700">
+   <source src="Demo/demo.mp4">
+</video>
+
+
 
