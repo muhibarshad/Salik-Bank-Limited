@@ -96,6 +96,15 @@ int main()
 }
 
 ```
+# Usage
+
+### Default Accounts for login:
+
+| username | password |
+| -------- | -------- |
+|    ma    |   111    |
+|    aa    |   222    |
+|    bs    |   333    |
 
 # 🚀 Features:
 
