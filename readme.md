@@ -84,7 +84,7 @@ Please ⭐️ this repository if this project helped you!
 
 You can also follow my GitHub Profile to stay updated:
 <a href="https://github.com/muhib7353" target="blank">
-@hammadsaedi
+@muhib7353
 </a>
 
 ## 📝 License
