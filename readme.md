@@ -120,27 +120,27 @@ If you want to add some features and resolve any issues then just fork the repos
    <div align="center">
 <p align="center">Let's connect!</p>
 
-<a href="https://www.linkedin.com/in/muhib-arshad/">
+<a href="https://www.linkedin.com/in/muhib-arshad/" target="blank">
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
 
-<a href="https://medium.com/@muhib7353">
+<a href="https://medium.com/@muhib7353" target="blank">
     <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" />
 </a>
 
-<a href="https://stackoverflow.com/users/18215817/muhib-arshad?tab=profile">
+<a href="https://stackoverflow.com/users/18215817/muhib-arshad?tab=profile" target="blank">
     <img src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white" />
 </a>
 
-<a href = "https://twitter.com/muhib7353">
+<a href = "https://twitter.com/muhib7353" target="blank">
     <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
 </a>
 
-<a href="https://www.facebook.com/muhib7353/">
+<a href="https://www.facebook.com/muhib7353/" target="blank">
     <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" />
 </a>
 
-<a href="https://www.instagram.com/muhib7353/">
+<a href="https://www.instagram.com/muhib7353/" target="blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 </a>
 
@@ -153,7 +153,7 @@ If you want to add some features and resolve any issues then just fork the repos
 Please ⭐️ this repository if this project helped you!
 
 You can also follow my GitHub Profile to stay updated:
-<a href="https://github.com/muhib7353">
+<a href="https://github.com/muhib7353" target="blank">
 @hammadsaedi
 </a>
 
