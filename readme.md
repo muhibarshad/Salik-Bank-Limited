@@ -124,7 +124,7 @@ If you want to add some features and resolve any issues then just fork the repos
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
 
-<a href="https://medium.com/@muhib7353" target="blank">
+<a href="https://medium.com/@muhibarshad123" target="blank">
     <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" />
 </a>
 
