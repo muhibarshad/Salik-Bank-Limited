@@ -128,7 +128,7 @@ If you want to add some features and resolve any issues then just fork the repos
     <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" />
 </a>
 
-<a href="https://stackoverflow.com/users/18755222/muhib-arshad">
+<a href="https://stackoverflow.com/users/18215817/muhib-arshad?tab=profile">
     <img src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white" />
 </a>
 
