@@ -120,7 +120,7 @@ If you want to add some features and resolve any issues then just fork the repos
    <div align="center">
 <p align="center">Let's connect!</p>
 
-<a href="https://www.linkedin.com/in/muhib-arshad/" target="blank">
+<a href="https://www.linkedin.com/in/muhib-arshad-85439b242/" target="blank">
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
 
