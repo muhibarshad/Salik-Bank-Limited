@@ -19,6 +19,15 @@
   <img width="1000" src="Demo/demo.gif" alt="demo"/>
 </p>
 
+# Usage
+
+### Default Accounts for login:
+
+| username | password |
+| -------- | -------- |
+|    ma    |   111    |
+|    aa    |   222    |
+|    bs    |   333    |
 
 # 🚀 Features:
 
@@ -69,8 +78,6 @@ If you want to add some features and resolve any issues then just fork the repos
 
 </div>
 
-
-
 ## Show your support
 
 Please ⭐️ this repository if this project helped you!
@@ -80,10 +87,8 @@ You can also follow my GitHub Profile to stay updated:
 @hammadsaedi
 </a>
 
-
 ## 📝 License
 
-Copyright © 2019 [Muhib Arshad](https://github.com/muhib7353). 
-
+Copyright © 2019 [Muhib Arshad](https://github.com/muhib7353).
 
 This project is [MIT](https://github.com/muhib7353/Salik-Bank-Limited/blob/main/LICENSE) licensed.
